@@ -1,0 +1,3 @@
+上传github命令
+git add .
+git commit -am "make it better"
