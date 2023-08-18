@@ -8,6 +8,7 @@ import re
 import time
 import datetime
 import random
+import os
 header3 = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
 
 proxies = {'https': '127.0.0.1:7890'}
@@ -35,14 +36,18 @@ def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text=url)
 
 def main():
+    PORT = int(os.environ.get('PORT', '8443'))
+    APP_NAME='https://zhifubot.onrender.com'
     TOKEN = "6282116592:AAF0g-K_VhaX-mDgYMLI940wHPs4vnUfYg0"
-    update = Updater(token = TOKEN,use_context=True,  request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
+    #update = Updater(token = TOKEN,use_context=True,  request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
+    update = Updater(token = TOKEN,use_context=True)
     #http://127.0.0.1:7890
     #https=127.0.0.1:7890;socks=127.0.0.1:7890
     #update = Updater(token = TOKEN,use_context=True)
     dispatcher = update.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
-    update.start_polling(timeout=600)
+    update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
+    #update.start_polling(timeout=600)
     update.idle()
 
 
@@ -77,7 +82,8 @@ def submit(money, name, trade_id):
     print(data)
     print(API + 'submit.php')
     try:
-        req = requests.post(API + 'submit.php', data=data,headers = header3,proxies = proxies)
+        #req = requests.post(API + 'submit.php', data=data,headers = header3,proxies = proxies)
+        req = requests.post(API + 'submit.php', data=data)
         print(req.status_code)
         print(req.text)
         content = re.search(r"<script>(.*)</script>", req.text).group(1)
@@ -123,6 +129,7 @@ def check_status(out_trade_no):
             pay_status = str(rst_dict['status'])
             if pay_status == '1':
                 print('支付成功')
+
                 return '支付成功'
             else:
                 print('支付失败')
@@ -138,6 +145,6 @@ def check_status(out_trade_no):
 
 if __name__ == '__main__':
     #data = make_data_dict(money = "2.00",name="sss",trade_id= get_trade_id())
-    url = submit(money = "2.00",name="VIP会员",trade_id= get_trade_id())
+    #url = submit(money = "2.00",name="VIP会员",trade_id= get_trade_id())
     # print(url)
-    #main()
+    main()
