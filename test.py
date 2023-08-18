@@ -37,7 +37,7 @@ def start(update, context):
 
 def main():
     PORT = int(os.environ.get('PORT', '8443'))
-    APP_NAME='https://zhifubot.onrender.com'
+    APP_NAME='https://zhifubot.onrender.com/'
     TOKEN = "6282116592:AAF0g-K_VhaX-mDgYMLI940wHPs4vnUfYg0"
     #update = Updater(token = TOKEN,use_context=True,  request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
     update = Updater(token = TOKEN,use_context=True)
