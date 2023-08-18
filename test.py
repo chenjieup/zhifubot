@@ -32,9 +32,9 @@ PAY_TIMEOUT = 300
 
 
 def start(update, context):
-    url = submit(money = "2.00",name="sss",trade_id= get_trade_id())
+    url,xinxi = submit(money = "2.00",name="VIP会员",trade_id= get_trade_id())
     context.bot.send_message(chat_id=update.effective_chat.id, text=url)
-
+    context.bot.send_message(chat_id=update.effective_chat.id, text=str(xinxi))
 def main():
     PORT = int(os.environ.get('PORT', '8443'))
     APP_NAME='https://zhifubot.onrender.com/'
@@ -67,6 +67,7 @@ def make_data_dict(money, name, trade_id):
 
 
 def submit(money, name, trade_id):
+    xinxi= []
     data = {'notify_url': NOTIFY_URL, 'pid': ID, 'return_url': JUMP_URL}
     data.update(money=money, name=name, out_trade_no=trade_id)
     items = data.items()
@@ -79,15 +80,16 @@ def submit(money, name, trade_id):
     sign = hashlib.md5(wait_for_sign_str.encode('utf-8')).hexdigest()
     # print("输出订单签名：" + sign)
     data.update(sign=sign, sign_type='MD5')
+    xinxi.append(data)
     print(data)
-    print(API + 'submit.php')
     try:
         #req = requests.post(API + 'submit.php', data=data,headers = header3,proxies = proxies)
         req = requests.post(API + 'submit.php', data=data)
+        xinxi.append(req.status_code)
+        xinxi.append(req.text)
         print(req.status_code)
         print(req.text)
         content = re.search(r"<script>(.*)</script>", req.text).group(1)
-        print(content)
         if 'http' in content:
             pay_url = re.search(r"href=\'(.*)\'", content).group(1)
             return_data = {
@@ -95,7 +97,7 @@ def submit(money, name, trade_id):
                 'type': 'url',
                 'data': pay_url
             }
-            return return_data
+            return return_data,xinxi
         else:
             pay_url = API + re.search(r"\.\/(.*)\'", content).group(1)
             print(pay_url)
@@ -104,7 +106,7 @@ def submit(money, name, trade_id):
                 'type': 'url',  # qrcode
                 'data': pay_url
             }
-            return return_data
+            return return_data,xinxi
     except Exception as e:
         print('submit | API请求失败')
         print(e)
@@ -112,7 +114,7 @@ def submit(money, name, trade_id):
             'status': 'Failed',
             'data': 'API请求失败'
         }
-        return return_data
+        return return_data ,xinxi
 
 def check_status(out_trade_no):
     try:
