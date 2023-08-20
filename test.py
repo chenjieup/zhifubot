@@ -165,10 +165,10 @@ def cancel_trade(update, context):
 
 def main():
     PORT = int(os.environ.get('PORT', '8443'))
-    #APP_NAME='https://zhifubot.onrender.com/'
+    APP_NAME='https://zhifubot.onrender.com/'
     TOKEN = "6282116592:AAF0g-K_VhaX-mDgYMLI940wHPs4vnUfYg0"
-    update = Updater(token = TOKEN,use_context=True,  request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
-    #update = Updater(token = TOKEN,use_context=True)
+    #update = Updater(token = TOKEN,use_context=True,  request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
+    update = Updater(token = TOKEN,use_context=True)
     #http://127.0.0.1:7890
     #https=127.0.0.1:7890;socks=127.0.0.1:7890
     #update = Updater(token = TOKEN,use_context=True)
@@ -198,7 +198,9 @@ def main():
 
     #update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
     dispatcher.add_handler(start_handler)
-    update.start_polling(timeout=600)
+
+    update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
+    #update.start_polling(timeout=600)
     update.idle()
 
 
