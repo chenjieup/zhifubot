@@ -11,10 +11,11 @@ def create_conn():
     return conn
 
 def get_trade_list_from_sqlite(user_id,status):
+    user_id = str(user_id)
     try:
         conn = create_conn()
         c = conn.cursor()
-        c.execute("SELECT * from trade WHERE USER_ID = %s AND STATUS = '%s'"%(user_id,status))
+        c.execute("SELECT * from trade WHERE USER_ID = '%s' AND STATUS = '%s'"%(user_id,status))
         cursor = c.fetchall()
         res = cursor
         #res = (cursor[0][0])
@@ -28,7 +29,7 @@ def insert_trade_in_sqlite(t_id,g_id,g_name,u_id,u_name,c_time,st):
     try:
         conn = create_conn()
         c = conn.cursor()
-        c.execute("INSERT INTO trade (trade_id,goods_id,goods_name,user_id,user_name,create_time,status) VALUES (%s,%s,'%s',%s,'%s',%s,'%s')"%(t_id,g_id,g_name,u_id,u_name,c_time,st))
+        c.execute("INSERT INTO trade (trade_id,goods_id,goods_name,user_id,user_name,create_time,status) VALUES ('%s',%s,'%s','%s','%s',%s,'%s')"%(t_id,g_id,g_name,u_id,u_name,c_time,st))
         conn.commit()
         conn.close()
         return True
@@ -50,16 +51,29 @@ def get_unpaid_list_from_sqlite():
         print(e)
         return '0'
 
-def update_lock_status_to_sqlite(trade_id):
+def update_paid_status_to_sqlite(trade_id):
     try:
         conn = create_conn()
         c = conn.cursor()
-        c.execute("UPDATE trade set STATUS = 'lock' WHERE ID = %s"%(id,))
+        c.execute("UPDATE trade set STATUS = 'paid' WHERE TRADE_ID ='%s'"%(trade_id,))
         conn.commit()
         conn.close()
         return True
     except:
         return False
+
+def delete_unpaid_status_in_sqlite(trade_id):
+    try:
+        conn = create_conn()
+        c = conn.cursor()
+        c.execute("DELETE from trade WHERE trade_id ='%s'"%(trade_id,))
+        conn.commit()
+        conn.close()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+
 
 #print(get_trade_list_from_sqlite(121,"unpaid"))
 d = "qwqweq"

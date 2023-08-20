@@ -2,10 +2,59 @@
 
 pindao_dict = {
     "深圳停车场":1,
-    "广州停车场":2
+    "广州停车场":2,
+    "东莞|惠州|中山|珠海|佛山停车场":3,
+    "杭州|宁波|温州停车场":4,
+    "福州|厦门|泉州停车场":5,
+    "成都|重庆停车场":6,
+    "上海停车场":7,
+    "南京|苏州|无锡|常州停车场":8,
+    "武汉停车场":9,
+    "长沙停车场":10,
+    "南昌停车场":11,
+    "郑州停车场":12,
+    "西安停车场":13,
+    "昆明停车场":14,
+    "南宁停车场":15,
+    "北京停车场":16,
+    "天津停车场":17,
+    "石家庄|廊坊|唐山停车场":18,
+    "太原停车场":19,
+    "沈阳|大连|长春|哈尔滨停车场":20,
+    "合肥|芜湖停车场":21,
+    "济南|青岛停车场":22,
+    "兰州停车场":23,
+    "贵阳停车场":24,
+    "海口停车场":25,
+    "乌鲁木齐|呼和浩特停车场":26
 }
 
-a = []
-import time
-print(int(time.time()))
-print(type(time.time()))
+pindao_url_dict = {
+    1:'https://t.me/+fhdV4X1tOF8zOTQ1',
+    2:'https://t.me/+-KM6bFSoQ4tlODg1',
+    3:'https://t.me/+BHyWwUk6CQEzNTc1',
+    4:'https://t.me/+6Fhu_ShieKBmZjg1',
+    5:'https://t.me/+r3J5jSPN-QNhZDll',
+    6:'https://t.me/+O5OiZ8xzS7tkODA1',
+    7:'https://t.me/+_kB4-nCwbDM5Mzg1',
+    8:'https://t.me/+7l8RFhs-NsxkYzhl',
+    9:'https://t.me/+ppkfhT1pAh9mNzZl',
+    10:'https://t.me/+Wf-WAyZMda43NzVl',
+    11:'https://t.me/+bRJ2Fr9ownVhYzU5',
+    12:'https://t.me/+Que4faFbJHBmZDNl',
+    13:'https://t.me/+AdcfIh69Z9tlODk9',
+    14:'https://t.me/+DiXj3IZ-aSA0ZTY1',
+    15:'https://t.me/+zTyNN2xcOWNiZjM1',
+    16:'https://t.me/+O4JcrlhieCkyZGE1',
+    17:'https://t.me/+EDoLDXBvRVdiZGY1',
+    18:'https://t.me/+8Jlp-tXPwTg2MTI1',
+    19:'https://t.me/+yNtV_gkQO9kwMTA1',
+    20:'https://t.me/+DSF1QoPmGfBiOGE1',
+    21:'https://t.me/+W4CyfVpfUJoxNWU1',
+    22:'https://t.me/+pzvAAamK9s8wZmY1',
+    23:'https://t.me/+gw6ED2NO641mOGNh',
+    24:'https://t.me/+G7n2_cOPU_A1NGMx',
+    25:'https://t.me/+kuCgsgdoenw3Y2Ux',
+    26:'https://t.me/+Y0mjVGTftB1iYTcx'
+}
+
