@@ -38,7 +38,7 @@ PAY_TIMEOUT = 300
 
 ROUTE, CATEGORY, PRICE, SUBMIT, TRADE = range(5)
 TOKEN = "6282116592:AAF0g-K_VhaX-mDgYMLI940wHPs4vnUfYg0"
-bot = telegram.Bot(token=TOKEN,request_kwargs={'proxy_url': 'socks5h://127.0.0.1:7890/'})
+bot = telegram.Bot(token=TOKEN)
 
 def start(update, context):
     #url,xinxi = submit(money = "2.00",name="VIP会员",trade_id= get_trade_id())
