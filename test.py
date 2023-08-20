@@ -29,7 +29,7 @@ NOTIFY_URL = "https://zhifubot.onrender.com"
 JUMP_URL = "https://zhifubot.onrender.com"
 # 支付超时时间(秒)
 PAY_TIMEOUT = 300
-GOODS_PRICE = '1.00'
+GOODS_PRICE = '30.00'
 ROUTE, CATEGORY, PRICE, SUBMIT, RESULT,RETURN,TRADE = range(7)
 TOKEN = "6544328429:AAF4YnMWCWXGsuOON-A6L1pxbRpUi0vdyeY"
 bot = telegram.Bot(token=TOKEN)
@@ -172,9 +172,9 @@ def trade_result(update, context):
         pindao_url = pindao_url_dict.get(int(goods_id))
         query.edit_message_text(
                 text = "订单支付成功!\n"
-                       "订单号：{}\n"
-                       "商品：{}\n"
-                       "频道链接：{}，请保存好！\n"
+                       "订单号：`{}`\n"
+                       "商品：*{}*\n"
+                       "频道链接：`{}`，请保存好！\n"
                        "使用方法：[点击这里]({})即可进入频道！\n".format(trade_id,goods_name, pindao_url,pindao_url),
                 parse_mode='Markdown'
         )
@@ -360,7 +360,7 @@ def main():
     )
 
 
-    #dispatcher.add_handler(start_handler)
+    dispatcher.add_handler(start_handler)
 
     update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
     #update.start_polling(timeout=600)
