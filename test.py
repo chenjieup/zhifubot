@@ -358,10 +358,7 @@ def main():
         conversation_timeout=60,
         fallbacks=[CommandHandler('cancel', cancel)]
     )
-
-
-    #dispatcher.add_handler(start_handler)
-
+    dispatcher.add_handler(start_handler)
     update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
     #update.start_polling(timeout=600)
     update.idle()
