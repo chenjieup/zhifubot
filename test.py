@@ -128,6 +128,7 @@ def submit_trade(update, context):
                 query.edit_message_text(
                     text="请在{}s内完成支付，超时支付会导致订单失败！\n"
                          "[点击这里]({})跳转支付，或者点击下方跳转按钮!\n"
+                         "支付链接无法支付，可关掉VPN重试！\n"
                          "支付完成后，会自动发出频道链接；也可点击下方支付完成按钮获取！".format(str(PAY_TIMEOUT), pay_url),
                     parse_mode='Markdown',
                     reply_markup=reply_markup)
