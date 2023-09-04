@@ -24,7 +24,7 @@ API = 'https://api.lempay.org/'
 ID = 1110
 # 商户密钥
 KEY = 'dwmD92It3PWPc7M3pW2WyQ6fjW9cf77Y'
-NOTIFY_URL = "https://www.baidu.com"
+NOTIFY_URL = "https://api.lempay.org/success.php"
 # 支付成功跳转地址
 JUMP_URL = "https://www.baidu.com"
 # 支付超时时间(秒)
