@@ -24,9 +24,9 @@ API = 'https://api.lempay.org/'
 ID = 1110
 # 商户密钥
 KEY = 'dwmD92It3PWPc7M3pW2WyQ6fjW9cf77Y'
-NOTIFY_URL = "https://api.lempay.org/success.php"
+NOTIFY_URL = "https://ilay1678.github.io/pages/pay/notify.html"
 # 支付成功跳转地址
-JUMP_URL = "https://www.baidu.com"
+JUMP_URL = "https://ilay1678.github.io/pages/pay/success.html"
 # 支付超时时间(秒)
 PAY_TIMEOUT = 300
 GOODS_PRICE = '30.00'
