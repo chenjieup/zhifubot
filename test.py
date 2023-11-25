@@ -24,9 +24,9 @@ API = 'https://api.lempay.org/'
 ID = 1110
 # 商户密钥
 KEY = 'dwmD92It3PWPc7M3pW2WyQ6fjW9cf77Y'
-NOTIFY_URL = "https://zhifubot.onrender.com"
+NOTIFY_URL = "https://ilay1678.github.io/pages/pay/notify.html"
 # 支付成功跳转地址
-JUMP_URL = "https://zhifubot.onrender.com"
+JUMP_URL = "https://ilay1678.github.io/pages/pay/success.html"
 # 支付超时时间(秒)
 PAY_TIMEOUT = 300
 GOODS_PRICE = '30.00'
@@ -128,6 +128,7 @@ def submit_trade(update, context):
                 query.edit_message_text(
                     text="请在{}s内完成支付，超时支付会导致订单失败！\n"
                          "[点击这里]({})跳转支付，或者点击下方跳转按钮!\n"
+                         "支付链接无法支付，可关掉VPN重试！\n"
                          "支付完成后，会自动发出频道链接；也可点击下方支付完成按钮获取！".format(str(PAY_TIMEOUT), pay_url),
                     parse_mode='Markdown',
                     reply_markup=reply_markup)
@@ -172,8 +173,8 @@ def trade_result(update, context):
         pindao_url = pindao_url_dict.get(int(goods_id))
         query.edit_message_text(
                 text = "订单支付成功!\n"
-                       "订单号：`{}`\n"
-                       "商品：*{}*\n"
+                       "订单号：{}\n"
+                       "商品：{}\n"
                        "频道链接：`{}`，请保存好！\n"
                        "使用方法：[点击这里]({})即可进入频道！\n".format(trade_id,goods_name, pindao_url,pindao_url),
                 parse_mode='Markdown'
@@ -358,10 +359,7 @@ def main():
         conversation_timeout=60,
         fallbacks=[CommandHandler('cancel', cancel)]
     )
-
-
     dispatcher.add_handler(start_handler)
-
     update.start_webhook(listen="0.0.0.0",port=PORT,url_path=TOKEN,webhook_url=APP_NAME + TOKEN)
     #update.start_polling(timeout=600)
     update.idle()
