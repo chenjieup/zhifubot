@@ -3,7 +3,11 @@
 git remote -V 查看当前链接
 git remote rm origin 清除当前连接
 git remote add origin ssh地址 重新添加ssh链接
+====================
+同步代码到github
 git add .
 git commit -am "make it better"
 git push -u origin main
-
+==============================
+同步代码到本地
+git pull origin

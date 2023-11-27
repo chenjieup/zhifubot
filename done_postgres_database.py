@@ -76,6 +76,6 @@ def delete_unpaid_status_in_sqlite(trade_id):
 
 
 #print(get_trade_list_from_sqlite(121,"unpaid"))
-d = "qwqweq"
+#d = "qwqweq"
 #print(create_conn())
-print(insert_trade_in_sqlite(1223,222,d,123,'wew',1,'2222'))
+#print(insert_trade_in_sqlite(1223,222,d,123,'wew',1,'2222'))
