@@ -29,7 +29,7 @@ NOTIFY_URL = "https://ilay1678.github.io/pages/pay/notify.html"
 JUMP_URL = "https://ilay1678.github.io/pages/pay/success.html"
 # 支付超时时间(秒)
 PAY_TIMEOUT = 300
-GOODS_PRICE = '30.00'
+GOODS_PRICE = '1.00'
 ROUTE, CATEGORY, PRICE, SUBMIT, RESULT,RETURN,TRADE = range(7)
 TOKEN = "6544328429:AAF4YnMWCWXGsuOON-A6L1pxbRpUi0vdyeY"
 bot = telegram.Bot(token=TOKEN)
