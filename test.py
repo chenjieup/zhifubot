@@ -19,11 +19,11 @@ import done_postgres_database as dpd
 header3 = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36(KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
 proxies = {'https': '127.0.0.1:7890'}
 # 易支付API地址, 末尾需要包含/
-API = 'https://api.lempay.org/'
+API = 'https://30321543.lemzf.com/'
 # 商户ID
-ID = 1110
+ID = 1543
 # 商户密钥
-KEY = 'dwmD92It3PWPc7M3pW2WyQ6fjW9cf77Y'
+KEY = '0KO014VD2214v1tVtE2VKbK22Hv1E2vB'
 NOTIFY_URL = "https://ilay1678.github.io/pages/pay/notify.html"
 # 支付成功跳转地址
 JUMP_URL = "https://ilay1678.github.io/pages/pay/success.html"
@@ -366,6 +366,7 @@ def main():
 
 if __name__ == '__main__':
     # trade_id = get_trade_id()
+    # print(trade_id)
     # trade_data = make_data_dict("30.00", "深圳停车场", trade_id)
     # pay_url = submit(trade_data)
     # print(pay_url)

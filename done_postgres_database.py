@@ -2,10 +2,10 @@ import psycopg2
 from psycopg2.extensions import AsIs
 def create_conn():
 
-    conn = psycopg2.connect(database = 'xiuchebot_ekbv',
-                    user = 'xiuchebot_ekbv_user',
-                    password = 'jbvDBJrLQrsDmNGNGPCX3vwaVdYDoeb7',
-                    host = 'dpg-clgvnnj1hq4c73fb0ucg-a.oregon-postgres.render.com',
+    conn = psycopg2.connect(database = 'xiuchebot_m6bc',
+                    user = 'xiuchebot_m6bc_user',
+                    password = 'RwItmbK3ZOf7S0K9ZF1XegdbyUJBqPXV',
+                    host = 'dpg-cnk68pnsc6pc73f7jlkg-a.ohio-postgres.render.com',
                     port = '5432')
 #postgres://xiuchebot_ekbv_user:jbvDBJrLQrsDmNGNGPCX3vwaVdYDoeb7@dpg-clgvnnj1hq4c73fb0ucg-a.oregon-postgres.render.com/xiuchebot_ekbv
     return conn
