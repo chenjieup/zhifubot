@@ -1,4 +1,8 @@
-
+DATABASE='xiuchebot_mxuk'
+USER='xiuchebot_mxuk_user'
+PASSWORD='lSEMU0pDlaT4efsWbFWAlBy2wqbyJ33t'
+HOST='dpg-cq200mrv2p9s73d9qar0-a.oregon-postgres.render.com'
+PORT='5432'
 
 pindao_dict = {
     "深圳停车场":1,

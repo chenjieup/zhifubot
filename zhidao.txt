@@ -11,3 +11,14 @@ git push -u origin main
 ==============================
 同步代码到本地
 git pull origin
+==========
+create table trade
+(
+    trade_id    text    not null,
+    goods_id    integer not null,
+    goods_name  char(50),
+    user_id     text    not null,
+    user_name   text    not null,
+    create_time integer not null,
+    status      text    not null
+);
