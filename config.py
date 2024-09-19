@@ -1,7 +1,7 @@
-DATABASE='xiuchebot_8p8u'
-USER='xiuchebot_8p8u_user'
-PASSWORD='HpP2c0cjNEjXvQqtMzzbvz2HLySgyMjP'
-HOST='dpg-cqnla9dsvqrc73foqt7g-a.oregon-postgres.render.com'
+DATABASE='xiuchebot_vsst'
+USER='xiuchebot_vsst_user'
+PASSWORD='CwsR2arMdNlvGm6ZCtaMhtE9CzxPwPXJ'
+HOST='dpg-crlvpau8ii6s738q3k6g-a.oregon-postgres.render.com'
 PORT='5432'
 
 pindao_dict = {
