@@ -1,7 +1,7 @@
-DATABASE='xiuchebot_077l'
-USER='xiuchebot_077l_user'
-PASSWORD='VKJ7YCHTeyMb5Kc0gynTjMLDEBVHejU6'
-HOST='dpg-cso7a7i3esus73ekt1fg-a.ohio-postgres.render.com'
+DATABASE='mydatabase'
+USER='myuser'
+PASSWORD='123456'
+HOST='108.61.75.227'
 PORT='5432'
 
 pindao_dict = {
